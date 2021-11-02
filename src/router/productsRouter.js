@@ -1,16 +1,23 @@
 const router = require('express').Router();
-const { search } = require('../conrollers/productsController');
+const { getAll, getOne, getBrands } = require('../conrollers');
 
-router.get('/search/:product', async(req, res) => {
-    const { product } = req.params;
-    const resp = await search(product);
-    console.log(resp);
+//return a genre product
+router.get('/get-all', async(req, res) => {
+   
+    const { gender, brand, maxPrice } = req.query;
+    const results = await getAll(gender, brand, maxPrice);
+    res.status(200).json(results);
+})
+//return details of a sneaker
+router.get('/get-one/:id', async(req, res) => {
+    const { id } = req.params;
+    const result = getOne(id);
+    res.status(200).json(result);
 })
 
-router.get('/filter-by-brand/:brand', async(req, res) => {
-    const { brand } = req.params;
-    const response = await searchByBrand(brand);
-    console.log(response);
-});
+router.get('/get-brands', async(req, res) => {
+    const results = await getBrands();
+    res.status(200).json(results);
+})
 
 module.exports = router;
