@@ -17,13 +17,12 @@ server.use((req, res, next) => {
 server.use(express.urlencoded());
 server.use(express.json());
 //docs set up
-server.use('/sneakers-api/docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
+server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 server.use(router);
 
 server.use((error, req, res, next) => {
     //cannot deconstruct because error can be 500
     code = error.code;
-    console.log(error)
     description = error.description;
     message = error.message;
     //if not code error.code is 500
