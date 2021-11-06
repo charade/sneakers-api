@@ -10,7 +10,7 @@
     },
     "servers" : [
         {
-            "url" : "http://localhost:8080/sneakers-api"
+            "url" : "https://charles-ek-sneakers-api.herokuapp.com/sneakers-api"
         }
     ],
     "paths" : {
