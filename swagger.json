@@ -14,7 +14,7 @@
         }
     ],
     "paths" : {
-        "/": {
+        "/sneakers": {
             "get" : {
                 "description" : "returns all available sneakers",
                 "responses" : {
@@ -35,7 +35,7 @@
                 }
             }
         },
-        "/get-gender/{gender}" : {
+        "/sneakers/get-gender/{gender}" : {
             "get" : {
                 "parameters" : [
                     {
@@ -87,7 +87,7 @@
                 }
             }
         },
-        "/get-a-brand/{brand}" : {
+        "/sneakers/get-a-brand/{brand}" : {
             "parameters" : [
                 {
                     "in" : "path",
@@ -139,7 +139,7 @@
                 }
             }
         },
-        "/get-one/{id}" : {
+        "/sneakers/get-one/{id}" : {
             "get" : {
                 "parameters" : [
                     {
@@ -189,7 +189,7 @@
                 
             }
         },
-        "/get-brands"  :{
+        "/sneakers/get-brands"  :{
             "get" : {
                 "description" : "returns the list of available brands",
                 "responses" : {
@@ -210,7 +210,7 @@
                 }
             }
         },
-        "/max-price/{price}" : {
+        "/sneakers/max-price/{price}" : {
             "get" : {
                 "parameters" : [
                     {
