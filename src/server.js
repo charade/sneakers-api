@@ -22,11 +22,6 @@ server.use(router);
 
 server.use((error, req, res, next) => {
     //cannot deconstruct because error can be 500
-    console.log('error')
-    console.log('error')
-    console.log('error')
-    console.log('error')
-    console.log('error')
     code = error.code;
     console.log(error)
     description = error.description;
@@ -39,7 +34,7 @@ server.use((error, req, res, next) => {
     })
 })
 
-const PORT = process.env.PORT1 || process.env.PORT2 || process.env.PORT3;
+const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
     db.sequelize.sync({alter : false});
