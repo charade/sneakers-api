@@ -7,7 +7,6 @@ const express = require('express');
 const router = require('./routes');
 const server = express();
 
-
 server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin','*');
     res.setHeader('Acces-Control-Allow-Methods', 'GET');
