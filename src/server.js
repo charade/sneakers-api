@@ -20,6 +20,25 @@ server.use(express.json());
 server.use('/sneakers-api/docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 server.use(router);
 
+server.use((error, req, res, next) => {
+    //cannot deconstruct because error can be 500
+    console.log('error')
+    console.log('error')
+    console.log('error')
+    console.log('error')
+    console.log('error')
+    code = error.code;
+    console.log(error)
+    description = error.description;
+    message = error.message;
+    //if not code error.code is 500
+    res.status(code || 500).json({
+        code : code || 500,
+        message : message || 'Oops an error occured',
+        description: description || 'It will be fixed soon'
+    })
+})
+
 const PORT = process.env.PORT1 || process.env.PORT2 || process.env.PORT3;
 
 server.listen(PORT, () => {

@@ -63,6 +63,26 @@
                                 }
                             }
                         }
+                    },
+                    "400" : {
+                        "description" : "bad request",
+                        "content" : {
+                            "application/json":{
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Errors"
+                                }
+                            }
+                        }
+                    },
+                    "500" : {
+                        "description" : "something went wrong",
+                        "content" : {
+                            "application/json":{
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Errors"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -95,6 +115,26 @@
                                 }
                             }
                         }
+                    },
+                    "400" : {
+                        "description" : "bad request",
+                        "content" : {
+                            "application/json":{
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Errors"
+                                }
+                            }
+                        }
+                    },
+                    "500" : {
+                        "description" : "something went wrong",
+                        "content" : {
+                            "application/json":{
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Errors"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -121,6 +161,26 @@
                                 "schema" : {
                                     "$ref" : "#components/schemas/Sneakers",
                                     "type" : "object"
+                                }
+                            }
+                        }
+                    },
+                    "400" : {
+                        "description" : "bad request",
+                        "content" : {
+                            "application/json":{
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Errors"
+                                }
+                            }
+                        }
+                    },
+                    "500" : {
+                        "description" : "something went wrong",
+                        "content" : {
+                            "application/json":{
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Errors"
                                 }
                             }
                         }
@@ -174,7 +234,6 @@
                                     "items" : {
                                         "type" : "object"
                                     }
-                                    
                                 }
                             }
                         }
@@ -218,8 +277,15 @@
                         "type"  : "string"
                     }
                 }
+            },
+            "Errors" : {
+                "type": "object",
+                "properties" : {
+                    "message" : "string",
+                    "code" : "integer",
+                    "description" : "string"
+                }
             }
         }
     }
-
 }

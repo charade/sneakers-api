@@ -16,7 +16,6 @@ module.exports = {
                 },
             },
         });
-        console.log(results)
         return results;
     },
     getABrand : async(brand) => {
@@ -27,7 +26,6 @@ module.exports = {
                 }
             },
         })
-        console.log(results)
         return results;
     },
     getMaxPrice : async(price) => {
