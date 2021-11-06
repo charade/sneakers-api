@@ -17,7 +17,7 @@ server.use((req, res, next) => {
 server.use(express.urlencoded());
 server.use(express.json());
 //docs set up
-server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
+server.use('/', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 server.use(router);
 
 server.use((error, req, res, next) => {

@@ -10,7 +10,7 @@
     },
     "servers" : [
         {
-            "url" : "https://charles-ek-sneakers-api.herokuapp.com/sneakers-api"
+            "url" : "https://charles-ek-sneakers-api.herokuapp.com"
         }
     ],
     "paths" : {
