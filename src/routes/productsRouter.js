@@ -35,5 +35,4 @@ router.get('/get-brands', async(req, res) => {
     const results = await getBrands();
     res.status(200).json(results);
 })
-
 module.exports = router;

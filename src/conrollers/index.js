@@ -32,7 +32,7 @@ module.exports = {
     },
     getMaxPrice : async(price) => {
         const results = await products.findAll();
-        return result.filter(item => parseInt(item.price) <= price)
+        return results.filter(item => parseInt(item.price) <= price)
     },
     //get one from id
     getOne : async(id) => {

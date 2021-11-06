@@ -1,0 +1,225 @@
+{
+    "openapi" : "3.0.0",
+    "info" : {
+        "title" : "Sneakers API",
+        "description" : "Node.JS + express API for fetching sneakers documented with swagger",
+        "contact" :{
+            "email": "charles.ekomie@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers" : [
+        {
+            "url" : "http://localhost:8080/sneakers-api"
+        }
+    ],
+    "paths" : {
+        "/": {
+            "get" : {
+                "description" : "returns all available sneakers",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Sneakers",
+                                    "type" : "array",
+                                    "item" : {
+                                        "type" : "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/get-gender/{gender}" : {
+            "get" : {
+                "parameters" : [
+                    {
+                        "in" : "path",
+                        "name" : "gender",
+                        "schame" : {
+                            "type" : "string"
+                        },
+                        "required" : true,
+                        "description" : "men or women"
+                    }
+                ],
+                "description" : "returns sneakers from a gender (men, women)",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Sneakers",
+                                    "type" : "array",
+                                    "items" : {
+                                        "type" : "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/get-a-brand/{brand}" : {
+            "parameters" : [
+                {
+                    "in" : "path",
+                    "name" : "brand",
+                    "schema" : {
+                        "type" : "string"
+                    },
+                    "required" : true,
+                    "description" : "search sneakers by brand name"
+                }
+            ],
+            "get" : {
+                "description" : "returns sneakers from a brand ",
+                "responses" : { 
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Sneakers",
+                                    "type" : "array",
+                                    "item" : {
+                                        "type" : "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/get-one/{id}" : {
+            "get" : {
+                "parameters" : [
+                    {
+                        "in" : "path",
+                        "name" : "id",
+                        "required" : true,
+                        "schema" :{
+                            "type" : "string"
+                        },
+                        "description" : "get one sneaker details"
+                    }
+                ],
+                "description" : "returns a sneaker details",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Sneakers",
+                                    "type" : "object"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        },
+        "/get-brands"  :{
+            "get" : {
+                "description" : "returns the list of available brands",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Brands",
+                                    "type" :"array",
+                                    "item" : {
+                                        "type" : "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/max-price/{price}" : {
+            "get" : {
+                "parameters" : [
+                    {
+                        "in": "path",
+                        "name": "price",
+                        "required" : true,
+                        "schema" :{
+                            "type" : "integer"
+                        }
+                    }
+                ],
+                "description" : "returns list of sneakers with lower or equal price",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json" : {
+                                "schema" : {
+                                    "$ref" : "#components/schemas/Sneakers",
+                                    "type" : "array",
+                                    "items" : {
+                                        "type" : "object"
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components" : {
+        "schemas" : {
+            "Sneakers" : {
+                "type" : "object",
+                "properties": {
+                    "id" : {
+                        "type" : "string"
+                    },
+                    "name" : {
+                        "type" : "string"
+                    },
+                    "imageUrl" : {
+                        "type" : "string"
+                    },
+                    "gender" : {
+                        "type"  : "string"
+                    },
+                    "price" : {
+                        "type"  : "string"
+                    },
+                    "brandsName" : {
+                        "type" : "string"
+                    }
+                }
+            },
+            "Brands" : {
+                "type" : "object",
+                "properties" : {
+                    "id" : {
+                        "type"  : "string"
+                    },
+                    "brandsName" : {
+                        "type"  : "string"
+                    }
+                }
+            }
+        }
+    }
+
+}
