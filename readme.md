@@ -1,5 +1,5 @@
-# Documentation : 
-    http://localhost:8080/sneakers-api/docs
+# API docs : 
+   https://charles-ek-sneakers-api.herokuapp.com/docs/
 ## A sneaker API for eCommerce applications
 In progress
 
